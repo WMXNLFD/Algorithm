@@ -3,11 +3,14 @@ def quicksort(array):
         return array
     else:        
         pivot = array[0]
-        '''        
+        less =[]
+        '''  
         for i in array[1:]:
             if i <= pivot:
-                less = [i]   #这样做是错的 less无法递归
+                less.append(i)   #列表存入元素用append
+        return less
         '''
+        #这里用了python的列表解析，后面小贴士会介绍
         less = [i for i in array[1:] if i<=pivot]        
         greater = [i for i in array[1:] if i>pivot]      
         return  quicksort(less) + [pivot] + quicksort(greater)
